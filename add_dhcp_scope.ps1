@@ -1,5 +1,5 @@
 
-$scopes = Import-Csv -Path dhcp.csv -Delimiter ";"
+$scopes = Import-Csv -Path dhcpserver.csv -Delimiter ";"
 foreach ($scope in $scopes)
 {
     $name = $scope.name
@@ -12,5 +12,4 @@ foreach ($scope in $scopes)
     Remove-DhcpServerv4OptionValue -DnsServer $scope.removednsserver -ScopeId $scope.scopeid
     Add-DhcpServerv4OptionValue -DnsDomain $scope.dnsdomain -ScopeId $scope.scopeid
     Add-DhcpServerv4OptionValue -DnsServer $scope.dnsserver -ScopeId $scope.scopeid
-
 }
