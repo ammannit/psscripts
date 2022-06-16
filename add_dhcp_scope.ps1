@@ -10,6 +10,6 @@ foreach ($scope in $scopes)
     Add-DhcpServerv4ExclusionRange -ScopeId $scope.scopeid  -StartRange  $scope.exclusionstartrange2 -EndRange $scope.exclusionendrange2
     Set-DhcpServerv4OptionValue -Router $scope.router -ScopeId $scope.scopeid
     Remove-DhcpServerv4OptionValue -DnsServer $scope.removednsserver -ScopeId $scope.scopeid
-    Add-DhcpServerv4OptionValue -DnsDomain $scope.dnsdomain -ScopeId $scope.scopeid
-    Add-DhcpServerv4OptionValue -DnsServer $scope.dnsserver -ScopeId $scope.scopeid
+    Set-DhcpServerv4OptionValue -DnsDomain $scope.dnsdomain -ScopeId $scope.scopeid
+    Set-DhcpServerv4OptionValue -DnsServer $scope.dnsserver -ScopeId $scope.scopeid
 }
